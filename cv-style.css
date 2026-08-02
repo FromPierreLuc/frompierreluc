@@ -1,0 +1,224 @@
+html,
+body{
+    margin:0;
+    padding:0;
+    width:100%;
+    min-height:100%;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    background:#f3f0e9;
+    color:#24211f;
+    font-family:Georgia, "Times New Roman", serif;
+}
+
+/* Main layout */
+
+.cv-layout{
+    display:grid;
+    grid-template-columns:240px minmax(0, 1fr);
+
+    width:100%;
+    min-height:100vh;
+}
+
+/* Left navigation */
+
+.cv-sidebar{
+    position:relative;
+
+    min-height:100vh;
+    padding:0 30px;
+
+    border-right:1px solid rgba(36, 33, 31, 0.12);
+}
+
+.sidebar-content{
+    position:sticky;
+    top:50vh;
+
+    transform:translateY(-50%);
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    text-align:center;
+}
+
+/* Return link and logo */
+
+.back-link{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    color:#24211f;
+    text-decoration:none;
+}.return-text{
+    margin-bottom:14px;
+
+    font-size:16px;
+    line-height:1;
+    letter-spacing:1.2px;
+
+    opacity:0.78;
+}
+
+.print-button{
+    margin-top:34px;
+    padding:0;
+
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:16px;
+    letter-spacing:1px;
+
+    color:#24211f;
+    background:transparent;
+    border:0;
+
+    cursor:pointer;
+    opacity:0.78;
+}
+
+.logo-link{
+    display:block;
+    text-decoration:none;
+}
+
+.site-logo{
+    display:block;
+    width:165px;
+    height:auto;
+}
+
+/* Print option */
+
+
+.print-button:hover{
+    opacity:1;
+}
+
+/* CV */
+
+.cv-document{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+
+    min-width:0;
+
+    padding:24px 32px 50px;
+}
+
+.cv-image{
+    display:block;
+
+    width:100%;
+    max-width:1100px;
+    height:auto;
+
+    margin:0;
+}
+
+/* Smaller screens */
+
+@media (max-width:700px){
+
+    .cv-layout{
+        display:block;
+    }
+
+    .cv-sidebar{
+        min-height:0;
+        padding:22px 24px;
+
+        border-right:0;
+        border-bottom:1px solid rgba(36, 33, 31, 0.12);
+    }
+
+    .sidebar-content{
+        position:static;
+        transform:none;
+
+        flex-direction:row;
+        justify-content:space-between;
+        align-items:center;
+
+        text-align:left;
+    }
+
+    .back-link{
+        align-items:flex-start;
+    }
+
+    .site-logo{
+        width:110px;
+    }
+
+    .print-button{
+        margin-top:0;
+    }
+
+    .cv-document{
+        padding:18px 12px 35px;
+    }
+}
+
+/* Printing */
+
+@page{
+    size:letter portrait;
+    margin:0;
+}
+
+@media print{
+
+    html,
+    body{
+        margin:0;
+        padding:0;
+
+        width:8.5in;
+        height:11in;
+
+        overflow:hidden;
+        background:white;
+    }
+
+    .cv-sidebar{
+        display:none;
+    }
+
+    .cv-layout,
+    .cv-document{
+        display:block;
+
+        width:8.5in;
+        height:11in;
+
+        margin:0;
+        padding:0;
+
+        overflow:hidden;
+    }
+
+    .cv-image{
+        display:block;
+
+        width:8.9in;
+        height:11.35in;
+
+        max-width:none;
+        max-height:none;
+
+        margin:0;
+
+        transform:translate(-0.22in, 0);
+        object-fit:fill;
+    }
+}
